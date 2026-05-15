@@ -1,0 +1,36 @@
+﻿<Window x:Class="Guess_the_number_WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Guess_the_number_WpfApp"
+        mc:Ignorable="d"
+        Title="Guess the number" Height="450" Width="800">
+    <Grid Margin="10">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
+
+        <StackPanel>
+            <TextBlock Name="HintTextBlock" TextWrapping="Wrap" Margin="0,0,0,10" 
+                           Text="Введите число от 1 до 100"/>
+
+
+
+            <TextBox Name="GuessTextBox" Margin="0,0,0,10" />
+
+            <TextBlock Name="AttemptsTextBlock" Margin="0,0,0,10" 
+                           Text="Попыток: 0"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="CheckButton" Content="Проверить" Width="80" Margin="5,0" Click="CheckButton_Click"/>
+                <Button Name="NewGameButton" Content="Новая игра" Width="80" Margin="5,0" Click="NewGameButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
