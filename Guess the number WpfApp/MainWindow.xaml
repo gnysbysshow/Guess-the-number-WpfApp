@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Guess_the_number_WpfApp"
         mc:Ignorable="d"
-        Title="Guess the number" Height="450" Width="800">
+        Title="Guess the number" Height="300" Width="500">
     <Grid Margin="10">
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,16 +21,13 @@
                            Text="Введите число от 1 до 100"/>
 
 
-
             <TextBox Name="GuessTextBox" Margin="0,0,0,10" />
 
             <TextBlock Name="AttemptsTextBlock" Margin="0,0,0,10" 
-                           Text="Попыток: 0"/>
+                           Text=""/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Name="CheckButton" Content="Проверить" Width="80" Margin="5,0" Click="CheckButton_Click"/>
-                <Button Name="NewGameButton" Content="Новая игра" Width="80" Margin="5,0" Click="NewGameButton_Click"/>
-            </StackPanel>
+            <Button Name="CheckButton" Content="Проверить" Width="100" Margin="5,5" Click="CheckButton_Click"/>
+            <Button Name="NewGameButton" Content="Новая игра" Width="100" Margin="5,5" Click="NewGameButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
