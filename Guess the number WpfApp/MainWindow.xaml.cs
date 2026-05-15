@@ -12,7 +12,6 @@ namespace Guess_the_number_WpfApp
     {
         private int secretNumber;
         private int attempts;
-        private Random random = new Random();
 
         public MainWindow()
         {
@@ -22,7 +21,7 @@ namespace Guess_the_number_WpfApp
 
         private void StartNewGame()
         {
-            secretNumber = random.Next(1, 101);
+            secretNumber = new Random().Next(1,100);
             attempts = 0;
 
             HintTextBlock.Inlines.Clear();
@@ -32,21 +31,19 @@ namespace Guess_the_number_WpfApp
             GuessTextBox.Text = "";
             GuessTextBox.IsEnabled = true;
             CheckButton.IsEnabled = true;
+            NewGameButton.Visibility = Visibility.Hidden;
         }
 
         private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
-            // Проверка корректности ввода
             if (!int.TryParse(GuessTextBox.Text, out int userGuess))
             {
-                MessageBox.Show("Пожалуйста, введите целое число.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                MessageBox.Show("Пожалуйста, введите целое число.", "Ошибка"); return;
             }
 
             if (userGuess < 1 || userGuess > 100)
             {
-                MessageBox.Show("Число должно быть от 1 до 100.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                MessageBox.Show("Число должно быть от 1 до 100.", "Ошибка"); return;
             }
 
             attempts++;
@@ -61,15 +58,16 @@ namespace Guess_the_number_WpfApp
                 });
                 GuessTextBox.IsEnabled = false;
                 CheckButton.IsEnabled = false;
+                NewGameButton.Visibility = Visibility.Visible;
             }
-            else if (userGuess < secretNumber)
+            else if (userGuess < secretNumber) // >
             {
                 HintTextBlock.Inlines.Clear();
                 HintTextBlock.Inlines.Add(new Run("Загаданное число ") { Foreground = Brushes.Black });
                 HintTextBlock.Inlines.Add(new Run("больше") { Foreground = Brushes.Red });
                 HintTextBlock.Inlines.Add(new Run(".") { Foreground = Brushes.Black });
             }
-            else
+            else // <
             {
                 HintTextBlock.Inlines.Clear();
                 HintTextBlock.Inlines.Add(new Run("Загаданное число ") { Foreground = Brushes.Black });
